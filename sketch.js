@@ -38,16 +38,16 @@ function setup() {
 
 function makeScaling() {
   // scale cards to screen size
-  cardWidth = width / 2.5;
+  cardWidth = width / 2.25;
   cardHeight = cardWidth * 0.66;
   spacing = height / 32;
 
   //generate y-coordinates for the cards
   cardX = 2 * spacing + cardWidth / 2;
-  let y = height / 2 - spacing / 2 - cardHeight;
+  let y = height / 2 - spacing / 15 - cardHeight;
   for (let i = 0; i < 3; i++) {
     cardY.push(y);
-    y += cardHeight + spacing / 2;
+    y += cardHeight + spacing / 15;
   }
 
   // scale dice to screen size
@@ -117,6 +117,8 @@ function dealAndRoll() {
 function mousePressed() {
   if (mouseY > (9 / 10) * height - spacing / 2 &&
     mouseX > width / 10 && mouseX < (9 / 10) * width) {
+    addDecorations();
+    makeButton();
     dealAndRoll();
   }
 }
